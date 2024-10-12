@@ -521,7 +521,7 @@ export function ConsolePage() {
       {isOverlayVisible && (
         <div className="overlay">
           <div className="overlay-content">
-            <h1 className="initialText">What workout are we doing today?</h1>
+            <h1 className="initialText">Welcome to Run Bud!</h1>
             <img
               className="image"
               src={mic}
@@ -530,7 +530,7 @@ export function ConsolePage() {
                 isConnected ? disconnectConversation : connectConversation
               }
             />
-            <h1 className="caption">Click on mic to plan your workout!</h1>
+            <h1 className="caption">Start a workout with your Bud!</h1>
             <div className="spacer"></div>
           </div>
         </div>
