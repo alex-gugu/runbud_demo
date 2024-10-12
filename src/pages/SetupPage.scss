@@ -1,0 +1,36 @@
+[data-component='SetupPage'] {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+}
+
+[data-component='SetupPage'] > div {
+  flex-shrink: 0;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.container {
+  flex: 1;
+  background-color: white;
+}
+
+.initialText {
+  font-size: 25px;
+  text-align: center;
+  margin: 10px;
+  font-weight: bold;
+  padding-top: 50px;
+}
+
+.image {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
