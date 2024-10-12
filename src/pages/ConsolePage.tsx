@@ -12,13 +12,14 @@ const LOCAL_RELAY_SERVER_URL: string =
   process.env.REACT_APP_LOCAL_RELAY_SERVER_URL || '';
 
 import { useEffect, useRef, useCallback, useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
+import './SetupPage.scss';
 import { RealtimeClient } from '@openai/realtime-api-beta';
 import { ItemType } from '@openai/realtime-api-beta/dist/lib/client.js';
 import { WavRecorder, WavStreamPlayer } from '../lib/wavtools/index.js';
 import { instructions } from '../utils/conversation_config.js';
 import { WavRenderer } from '../utils/wav_renderer';
-
+import mic from '../assets/images/mic.png';
 import { X, Edit, Zap, ArrowUp, ArrowDown } from 'react-feather';
 import { Button } from '../components/button/Button';
 import { Toggle } from '../components/toggle/Toggle';
@@ -500,11 +501,40 @@ export function ConsolePage() {
     };
   }, []);
 
+  const [isOverlayVisible, setOverlayVisible] = useState(true);
+  const navigate = useNavigate();
+
+  const toggleOverlay = () => {
+    setOverlayVisible(!isOverlayVisible);
+  };
+
+  const handleMicClick = () => {
+    toggleOverlay();
+    navigate('/console'); // Navigates to console page when the mic is clicked
+  };
   /**
    * Render the application
    */
   return (
     <div data-component="ConsolePage">
+      {/* Render the overlay if it's visible */}
+      {isOverlayVisible && (
+        <div className="overlay">
+          <div className="overlay-content">
+            <h1 className="initialText">What workout are we doing today?</h1>
+            <img
+              className="image"
+              src={mic}
+              alt="Microphone"
+              onClick={
+                isConnected ? disconnectConversation : connectConversation
+              }
+            />
+            <h1 className="caption">Click on mic to plan your workout!</h1>
+            <div className="spacer"></div>
+          </div>
+        </div>
+      )}
       <div className="content-top">
         <div className="content-title">
           <img src="/openai-logomark.svg" />

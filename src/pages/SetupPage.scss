@@ -1,21 +1,17 @@
 [data-component='SetupPage'] {
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 400;
+  font-family: 'SF Pro';
+  font-weight: 500;
   font-style: normal;
-  font-size: 12px;
-}
-
-[data-component='SetupPage'] > div {
-  flex-shrink: 0;
-}
-
-.spacer {
-  flex-grow: 1;
+  font-size: 25px;
 }
 
 .container {
-  flex: 1;
+  display: flex;
   background-color: white;
+  flex-direction: column;
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center;
+  height: 100vh;
 }
 
 .initialText {
@@ -27,10 +23,48 @@
 }
 
 .image {
-  height: 100px;
+  height: 150px;
   width: 100px;
+  padding-top: 50px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.caption {
+  font-family: 'SF Pro', monospace;
+  font-size: 15px;
+  font-style: italic;
+}
+
+/* Overlay styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white; /* Semi-transparent black background */
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px;
+  z-index: 9999;
+}
+
+.overlay-content {
+  text-align: center;
+  color: black;
+}
+
+.image {
+  width: 100px;
+  cursor: pointer;
+}
+
+.caption {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+.spacer {
+  height: 20px;
 }

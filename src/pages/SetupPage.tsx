@@ -25,10 +25,8 @@ export default function SetupPage({ onMicPress }: SetupPageProps): JSX.Element {
         src={mic}
         alt="Microphone"
         onClick={handleMicClick}
-        style={{
-          cursor: 'pointer',
-        }}
       />
+      <h1 className="caption"> Click on mic to plan your workout!</h1>
       <div className="spacer"></div>
     </div>
   );
