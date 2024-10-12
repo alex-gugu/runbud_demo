@@ -11,9 +11,14 @@ import './App.scss';
 
 function App() {
     return (
-        <div data-component="App">
-            <ConsolePage />
-        </div>
+        <Router>
+            <div data-component="App">
+                <Routes>
+                    <Route path="/" element={<SetupPage />} />
+                    <Route path="/console" element={<ConsolePage />} />
+                </Routes>
+            </div>
+        </Router>
     );
 }
 

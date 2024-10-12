@@ -636,8 +636,8 @@ export function ConsolePage() {
                                             >
                                                 <div
                                                     className={`event-source ${event.type === 'error'
-                                                            ? 'error'
-                                                            : realtimeEvent.source
+                                                        ? 'error'
+                                                        : realtimeEvent.source
                                                         }`}
                                                 >
                                                     {realtimeEvent.source === 'client' ? (
