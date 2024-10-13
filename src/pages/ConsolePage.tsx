@@ -310,8 +310,8 @@ export function ConsolePage() {
                 // Set up interval after initial delay
                 intervalId = setInterval(() => {
                     runCommand(); // Now run the command at the end of each interval
-                }, 60000); // Adjust the interval time (30 seconds here)
-            }, 60000); // Initial delay before first runCommand
+                }, 30000); // Adjust the interval time (30 seconds here)
+            }, 30000); // Initial delay before first runCommand
         };
 
         // Start the process when the component mounts
@@ -549,8 +549,9 @@ export function ConsolePage() {
     };
 
     const handleMicClick = () => {
-        toggleOverlay();
-        navigate('/console'); // Navigates to console page when the mic is clicked
+        if (isConnected) disconnectConversation();
+        else connectConversation();
+
     };
     /**
      * Render the application
@@ -561,14 +562,14 @@ export function ConsolePage() {
             {isOverlayVisible && (
                 <div className="overlay">
                     <div className="overlay-content">
-                        <h1 className="initialText">Welcome to Run Bud!</h1>
+                        <h1 className="initialText"
+                            onClick={connectConversation}>Welcome to Run Bud!</h1>
                         <img
                             className="image"
                             src={mic}
                             alt="Microphone"
-                            onClick={
-                                isConnected ? disconnectConversation : connectConversation
-                            }
+                            onMouseDown={startRecording}
+                            onMouseUp={stopRecording}
                         />
                         <h1 className="caption">Start a workout with your Bud!</h1>
                         <div className="spacer"></div>
@@ -636,8 +637,8 @@ export function ConsolePage() {
                                             >
                                                 <div
                                                     className={`event-source ${event.type === 'error'
-                                                            ? 'error'
-                                                            : realtimeEvent.source
+                                                        ? 'error'
+                                                        : realtimeEvent.source
                                                         }`}
                                                 >
                                                     {realtimeEvent.source === 'client' ? (
