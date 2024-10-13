@@ -15,7 +15,8 @@
 }
 
 .initialText {
-  font-size: 25px;
+  font-size: 40px;
+  font-family: 'SF Pro';
   text-align: center;
   margin: 10px;
   font-weight: bold;
@@ -43,7 +44,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: white; /* Semi-transparent black background */
+  background-color: #fffcf9; /* Semi-transparent black background */
   display: flex;
   justify-content: center;
   align-items: center;
